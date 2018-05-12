@@ -34,7 +34,7 @@ gem 'jbuilder', '~> 2.5'
 # Use FontAwesome to get icons
 gem 'font-awesome-rails'
 # Use ActiveModel has_secure_password
-gem 'bcrypt', '~> 3.1.11', platform: :ruby
+gem 'bcrypt', '~> 3.1.11'#, platform: :ruby
 
 
 # Use Capistrano for deployment
