@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
       # 登入用户，然后重定向到用户的资料页面
     else
       # 创建一个错误消息
-      flash[:danger] = 'Invalid email/password combination' # 不完全正确
+      flash.now[:danger] = 'Invalid email/password combination'
       render 'new'
     end
   end
