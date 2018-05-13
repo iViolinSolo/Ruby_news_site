@@ -6,9 +6,10 @@ class CommentsController < ApplicationController
   end
 
   def create
-    @school_news = Schoolnews.find(params[:schoolnews_id])
+    # @school_news = Schoolnews.find(params[:schoolnews_id])
 
-    @comm = @school_news.comments.build
+    # @comm = @school_news.comments.build
+    @comm = Comment.new
     if @comm.save(comment_params)
       flash[:success] = "Comment Success!"
       redirect_to newcomments_path
@@ -21,7 +22,7 @@ class CommentsController < ApplicationController
   private
 
     def comment_params
-      params.require(:comment).permit(:content, :author)
+      params.require(:comment).permit(:content, :author, :schoolnews_id)
     end
 
 end
