@@ -19,10 +19,21 @@ class SchoolnewsController < ApplicationController
     @school_news = Schoolnews.new
   end
 
+  def create
+    @school_news = Schoolnews.new(school_news_params)
+    if @school_news.save
+      # 处理注册成功的情况
+      flash[:success] = "Successfully sbumit a news"
+      redirect_to @school_news
+    else
+      render 'new'
+    end
+  end
+
   private
 
     def school_news_params
-      params.require(:school_news).permit(:title, :source, :author)
+      params.require(:schoolnews).permit(:title, :source, :author)
     end
 
     # 前置过滤器
