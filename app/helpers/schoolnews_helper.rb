@@ -1,10 +1,18 @@
 module SchoolnewsHelper
+  def news_has_source?(news)
+    if news.source.nil? || news.source == ''
+      false
+    else
+      true
+    end
+  end
+
   def safe_source(news)
     safe_res = ''
     if news.source.nil? or news.source == ''
       safe_res
     else
-      '(' + news.source + ')'
+      '(' + URI(news.source).host + ')'
     end
   end
 

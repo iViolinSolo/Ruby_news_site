@@ -3,10 +3,14 @@
 <div class="row">
   <div class="news">
     <p class="news-title">
-      <%= @school_news.title %><%= safe_source(@school_news) %>
+      <%= link_to @school_news.title, schoolnews_path(@school_news) %> <%= link_to_if(news_has_source?(@school_news), safe_source(@school_news), @school_news.source)%>
     </p>
     <p class="news-info">
       by <%= @school_news.author %> <%= cal_time_before(@school_news.created_at)+' ago' %> | <%= pluralize(safe_comments_counts(@school_news), 'comment') %>
     </p>
   </div>
+</div>
+
+<div class="row">
+
 </div>
