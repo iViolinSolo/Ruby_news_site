@@ -14,7 +14,7 @@
 <br>
 <!--<h1 class="section-title">Leave a comment:</h1> <hr> <br>-->
 <div class="row">
-  <%=	form_for(@school_news.comments.build) do |f| %>
+  <%=	form_for([@school_news, @school_news.comments.build]) do |f| %>
     <%= render 'schoolnews/error_messages' %>
 
     <%= f.label "Comments" %>

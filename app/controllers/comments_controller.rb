@@ -4,4 +4,8 @@ class CommentsController < ApplicationController
   def newcomments
     @newest_comments = Comment.order(created_at: :desc).limit(COMM_NUM)
   end
+
+  def create
+
+  end
 end
