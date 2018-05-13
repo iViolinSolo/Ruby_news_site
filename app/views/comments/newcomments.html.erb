@@ -3,7 +3,7 @@
   <% @newest_comments.each do |comment| %>
     <div class="comment">
       <p>
-        <%= comment.author %> <%= news.created_at %> | on: <%= comment.schoolnews.title %>
+        <%= comment.author %> <%= cal_time_before(comment.created_at)+' ago' %> | on: <%= comment.schoolnews.title %>
       </p>
       <p>
         <%= comment.content %>
