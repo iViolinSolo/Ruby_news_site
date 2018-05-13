@@ -11,5 +11,7 @@ Rails.application.routes.draw do
   get    'static_pages/help'
 
   resources :users
+  resources :schoolnews
+  resources :comments
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

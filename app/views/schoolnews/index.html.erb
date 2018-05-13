@@ -1,0 +1,23 @@
+<% provide(:title, 'Home Page '+@page_num) %>
+<% _idx = @page_num * PAGE_NUM %>
+
+<div class="row">
+  <% @news_list.each do |news|%>
+    <div class="news">
+      <p>
+        <%= _idx += 1 %>.<%= news.title %><%= safe_source(news) %>
+      </p>
+      <p>
+        by <%= news.author %> <%= news.created_at %> | <%= pluralize(safe_comments_counts(news), 'comment') %>
+      </p>
+    </div>
+    <tr>
+      <td><%= news.id %></td>
+      <td><%= activity.title %></td>
+      <td><%= activity.content %></td>
+      <td><%= link_to 'Show', activity_path(activity) %></td>
+      <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
+      <td><%= link_to 'Delete', activity_path(activity), method: :delete, data:{confirm: 'Are you sure?'} %></td>
+    </tr>
+  <% end %>
+</div>
