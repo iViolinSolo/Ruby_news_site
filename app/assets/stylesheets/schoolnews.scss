@@ -8,6 +8,13 @@
   .news-title {
     color: black;
     font-weight: bold;
+
+    a {
+      color: black;
+      &:hover {
+        color: darkgray;
+      }
+    }
   }
 
   .news-info {
