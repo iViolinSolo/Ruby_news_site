@@ -1,11 +1,13 @@
+<% provide(:title, "New Comments") %>
 <h1>Recent Comments:</h1>
+<hr>
 <div class="row">
   <% @newest_comments.each do |comment| %>
     <div class="comment">
-      <p>
+      <p class="comment-info">
         <%= comment.author %> <%= cal_time_before(comment.created_at)+' ago' %> | on: <%= comment.schoolnews.title %>
       </p>
-      <p>
+      <p class="comment-content">
         <%= comment.content %>
       </p>
     </div>
