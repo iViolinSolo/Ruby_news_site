@@ -4,10 +4,10 @@
 <div class="row">
   <% @news_list.each do |news|%>
     <div class="news">
-      <p>
+      <p class="news-title">
         <%= _idx += 1 %>.<%= news.title %><%= safe_source(news) %>
       </p>
-      <p>
+      <p class="news-info">
         by <%= news.author %> <%= cal_time_before(news.created_at)+' ago' %> | <%= pluralize(safe_comments_counts(news), 'comment') %>
       </p>
     </div>

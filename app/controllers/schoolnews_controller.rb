@@ -15,6 +15,10 @@ class SchoolnewsController < ApplicationController
     # render plain: @news_list.length
   end
 
+  def show
+    @school_news = Schoolnews.find(params[:id])
+  end
+
   def new
     @school_news = Schoolnews.new
   end
