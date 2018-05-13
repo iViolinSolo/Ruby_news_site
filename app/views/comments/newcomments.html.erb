@@ -1,0 +1,13 @@
+<h1>Recent Comments:</h1>
+<div class="row">
+  <% @newest_comments.each do |comment| %>
+    <div class="comment">
+      <p>
+        <%= comment.author %> <%= news.created_at %> | on: <%= comment.schoolnews.title %>
+      </p>
+      <p>
+        <%= comment.content %>
+      </p>
+    </div>
+  <% end %>
+</div>
