@@ -1,4 +1,6 @@
 class SchoolnewsController < ApplicationController
+  before_action :logged_in_user, only: [:new, :edit, :update]
+
   PAGE_NUM = 8
 
   def index
@@ -16,4 +18,21 @@ class SchoolnewsController < ApplicationController
   def new
     @school_news = Schoolnews.new
   end
+
+  private
+
+    def school_news_params
+      params.require(:school_news).permit(:title, :source, :author)
+    end
+
+    # 前置过滤器
+    # 确保用户已登录
+    def logged_in_user
+      unless logged_in?
+        store_location
+        flash[:danger] = "Please log in."
+        redirect_to login_url
+      end
+    end
+
 end
