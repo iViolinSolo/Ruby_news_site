@@ -1,5 +1,5 @@
 <% provide(:title, @school_news.title) %>
-<h1 class="section-title">News:</h1> <hr>
+<h1 class="section-title">News:</h1> <hr> <br>
 <div class="row">
   <div class="news">
     <p class="news-title">
@@ -11,12 +11,15 @@
   </div>
 </div>
 
-<h1 class="section-title">Leave a comment:</h1> <hr>
+<h1 class="section-title">Leave a comment:</h1> <hr> <br>
 <div class="row">
-
 </div>
 
 <h1 class="section-title">All comments:</h1> <hr>
 <div class="row">
-  <%= render @school_news.comments %>
+  <% if @school_news.comments.nil? || @school_news.comments.length == 0 %>
+    No one comments yet, go and leave a comment to be the first one!
+  <% else %>
+    <%= render @school_news.comments %>
+  <% end %>
 </div>
