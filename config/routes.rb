@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get    '/news',    to: 'schoolnews#index'
   get    '/news?p=0',to: 'schoolnews#index'
   get    '/submit',  to: 'schoolnews#new'
+  get    '/newcomments',to: 'comments#newcomments'
 
   resources :users
   resources :schoolnews
