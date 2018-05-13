@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
       flash[:success] = "Comment Success!"
       redirect_to newcomments_path
     else
-      render 'schoolnews/new'
+      render 'schoolnews/show'
     end
   end
 
@@ -21,4 +21,5 @@ class CommentsController < ApplicationController
     def comment_params
       params.require(:comment).permit(:content, :author)
     end
+
 end
