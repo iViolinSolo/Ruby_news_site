@@ -11,14 +11,26 @@
   </div>
 </div>
 
-<h1 class="section-title">Leave a comment:</h1> <hr> <br>
+<br>
+<!--<h1 class="section-title">Leave a comment:</h1> <hr> <br>-->
 <div class="row">
+  <%=	form_for(@school_news.comments.build) do |f| %>
+    <%= render 'schoolnews/error_messages' %>
+
+    <%= f.label "Comments" %>
+    <%= f.text_area :content, class: 'form-control' %>
+
+    <%= f.hidden_field :author, value: current_user_name %>
+
+    <%= f.submit "Submit comment", class: "btn btn-primary" %>
+  <% end %>
 </div>
 
+<br><br>
 <h1 class="section-title">All comments:</h1> <hr>
 <div class="row">
   <% if @school_news.comments.nil? || @school_news.comments.length == 0 %>
-    No one comments yet, go and leave a comment to be the first one!
+    No one comments here, go and leave a comment to be the first one!
   <% else %>
     <%= render @school_news.comments %>
   <% end %>
