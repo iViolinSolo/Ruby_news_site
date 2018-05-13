@@ -14,4 +14,4 @@
   <% end %>
 </div>
 
-<%= link_to 'More', '/news?p='+@next_page_num.to_s %>
+<%= link_to 'More', '/news?p='+(@page_num + 1).to_s %>
