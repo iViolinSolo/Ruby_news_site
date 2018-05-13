@@ -9,7 +9,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params) # 不是最终的实现方式
+    @user = User.new(user_params)
     if @user.save
       # 处理注册成功的情况
       log_in @user # directly auto-login after register
