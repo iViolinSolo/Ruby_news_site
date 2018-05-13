@@ -24,7 +24,7 @@ class SchoolnewsController < ApplicationController
     if @school_news.save
       # 处理注册成功的情况
       flash[:success] = "Successfully sbumit a news"
-      redirect_to @school_news
+      redirect_to schoolnews_index_path
     else
       render 'new'
     end
