@@ -1,2 +1,15 @@
-<h1>Schoolnews#new</h1>
-<p>Find me in app/views/schoolnews/new.html.erb</p>
+<%= provide(:title, "Submit a news") %>
+
+<%=	form_for(@school_news) do |f| %>
+  <%= render 'schoolnews/error_messages' %>
+
+  <%= f.label :title %>
+  <%= f.text_area :title, class: 'form-control' %>
+
+  <%= f.label "news source (optional)" %>
+  <%= f.text_field :source, class: 'form-control' %>
+
+  <%= f.hidden_field :author, value: current_user_name %>
+
+  <%= f.submit "Create my account", class: "btn btn-primary" %>
+<% end %>

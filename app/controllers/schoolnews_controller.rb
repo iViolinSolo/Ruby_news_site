@@ -14,6 +14,7 @@ class SchoolnewsController < ApplicationController
   end
 
   def new
+    @school_news = Schoolnews.new
     @author_name = current_user.name
   end
 end

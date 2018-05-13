@@ -35,6 +35,11 @@ module SessionsHelper
     !current_user.nil?
   end
 
+  # 获取当前用户名字
+  def current_user_name
+    current_user.name
+  end
+
   # 忘记持久会话
   def forget(user)
     user.forget
