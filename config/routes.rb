@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get    'users/show'
   get    'static_pages/home'
   get    'static_pages/help'
+  get    'static_pages/about'
   get    '/news',    to: 'schoolnews#index'
   get    '/news?p=0',to: 'schoolnews#index'
   get    '/submit',  to: 'schoolnews#new'
