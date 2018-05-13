@@ -1,7 +1,7 @@
 module SchoolnewsHelper
   def safe_source(news)
     safe_res = ''
-    if news.source.nil?
+    if news.source.nil? or news.source == ''
       safe_res
     else
       '(' + news.source + ')'
