@@ -20,5 +20,12 @@
   .news-info {
     margin-left: 10px;
     color: grey;
+
+    a {
+      color: grey;
+      &:hover {
+        color: darkgray;
+      }
+    }
   }
 }
