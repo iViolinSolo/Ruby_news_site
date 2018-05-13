@@ -8,7 +8,7 @@
         <%= _idx += 1 %>.<%= news.title %><%= safe_source(news) %>
       </p>
       <p>
-        by <%= news.author %> <%= news.created_at %> | <%= pluralize(safe_comments_counts(news), 'comment') %>
+        by <%= news.author %> <%= cal_time_before(news.created_at)+' ago' %> | <%= pluralize(safe_comments_counts(news), 'comment') %>
       </p>
     </div>
   <% end %>
