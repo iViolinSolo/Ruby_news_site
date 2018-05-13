@@ -1,0 +1,8 @@
+<div class="comment">
+  <p class="comment-info">
+    <%= comment.author %> <%= cal_time_before(comment.created_at)+' ago' %> | on: <%= comment.schoolnews.title %>
+  </p>
+  <p class="comment-content">
+    <%= comment.content %>
+  </p>
+</div>
