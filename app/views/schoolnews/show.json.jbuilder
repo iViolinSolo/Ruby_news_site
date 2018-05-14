@@ -1,0 +1,1 @@
+json.partial! "schoolnews/news", news: @school_news
