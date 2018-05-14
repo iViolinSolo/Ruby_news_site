@@ -15,6 +15,13 @@ Rails.application.routes.draw do
   get    '/submit',  to: 'schoolnews#new'
   get    '/newcomments',to: 'comments#newcomments'
 
+  scope 'v0' do
+    scope 'item' do
+      get '/comments/:id', to: 'comments#show', defaults: { format: 'json' }
+      get '/news/:id', to: 'schoolnews#show', defaults: { format: 'json' }
+    end
+  end
+
   resources :users
   resources :schoolnews
   resources :comments
