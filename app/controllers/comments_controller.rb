@@ -7,6 +7,10 @@ class CommentsController < ApplicationController
     @newest_comments = Comment.order(created_at: :desc).limit(COMM_NUM)
   end
 
+  def show
+    @comment = Comment.find(params[:id])
+  end
+
   def create
     # @school_news = Schoolnews.find(params[:schoolnews_id])
 
@@ -14,11 +18,11 @@ class CommentsController < ApplicationController
     @comment = Comment.new(comment_params)
     # puts comment_params
     if @comment.save
-      puts "Succeed........."
+      # puts "Succeed........."
       flash[:success] = "Comment Success!"
       redirect_to newcomments_path
     else
-      puts "Failure........."
+      # puts "Failure........."
       flash.now[:danger] = "Invalid Comment Content!"
       @school_news = Schoolnews.find(comment_params[:schoolnews_id])
       render 'schoolnews/show'
