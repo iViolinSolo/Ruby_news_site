@@ -30,15 +30,12 @@ class SchoolnewsController < ApplicationController
     respond_to do |format|
       if @school_news.save
         # 处理注册成功的情况
-        # flash[:success] = "Successfully sbumit a news"
-        # redirect_to schoolnews_index_path
         format.html {
           flash[:success] = "Successfully sbumit a news"
           redirect_to schoolnews_index_path
         }
         format.json { render :show, status: :created, location: @school_news }
       else
-        # render 'new'
         format.html { render 'new' }
         format.json { render json: @school_news.errors, status: :unprocessable_entity}
       end
@@ -51,13 +48,13 @@ class SchoolnewsController < ApplicationController
       #   format.json { render json: @user.errors, status: :unprocessable_entity }
       # end
     end
-    if @school_news.save
-      # 处理注册成功的情况
-      flash[:success] = "Successfully sbumit a news"
-      redirect_to schoolnews_index_path
-    else
-      render 'new'
-    end
+    # if @school_news.save
+    #   # 处理注册成功的情况
+    #   flash[:success] = "Successfully sbumit a news"
+    #   redirect_to schoolnews_index_path
+    # else
+    #   render 'new'
+    # end
   end
 
   private
