@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
       flash[:success] = "Comment Success!"
       redirect_to newcomments_path
     else
-      flash.now[:danger] = 'Invalid Comment Content!'
+      flash.now[:danger] = "Invalid Comment Content!"
       render 'schoolnews/show'
     end
   end
