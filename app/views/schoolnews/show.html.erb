@@ -16,7 +16,7 @@
 <div class="row">
   <%#=	form_for(@school_news.comments.build) do |f| %> <!-- 千万别乱用这句话,会产生一个空的评论对象 -->
   <%= form_for(@comment) do |f| %>
-    <%#= render 'schoolnews/error_messages' %>
+    <%#= render 'schoolnews/error_comments' %>
 
     <%= f.label "Comments" %>
     <%= f.text_area :content, class: 'form-control' %>

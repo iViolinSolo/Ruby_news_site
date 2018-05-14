@@ -11,12 +11,16 @@ class CommentsController < ApplicationController
     # @school_news = Schoolnews.find(params[:schoolnews_id])
 
     # @comm = @school_news.comments.build
-    @comment = Comment.new
-    if @comment.save(comment_params)
+    @comment = Comment.new(comment_params)
+    # puts comment_params
+    if @comment.save
+      puts "Succeed........."
       flash[:success] = "Comment Success!"
       redirect_to newcomments_path
     else
+      puts "Failure........."
       flash.now[:danger] = "Invalid Comment Content!"
+      @school_news = Schoolnews.find(comment_params[:schoolnews_id])
       render 'schoolnews/show'
     end
   end
