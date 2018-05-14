@@ -17,6 +17,7 @@ class SchoolnewsController < ApplicationController
 
   def show
     @school_news = Schoolnews.find(params[:id])
+    @comment = Comment.new
   end
 
   def new

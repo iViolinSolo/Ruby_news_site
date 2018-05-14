@@ -11,8 +11,8 @@ class CommentsController < ApplicationController
     # @school_news = Schoolnews.find(params[:schoolnews_id])
 
     # @comm = @school_news.comments.build
-    @comm = Comment.new
-    if @comm.save(comment_params)
+    @comment = Comment.new
+    if @comment.save(comment_params)
       flash[:success] = "Comment Success!"
       redirect_to newcomments_path
     else
