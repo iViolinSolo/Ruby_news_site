@@ -3,7 +3,7 @@ class User < ApplicationRecord
 
   before_save { self.email = email.downcase }
 
-  VALID_NAME_REGEX = /[a-zA-Z\d\-.]+/i
+  VALID_NAME_REGEX = /\A[a-zA-Z\d\-_]+\z/
   validates :name,  presence: true, length: {minimum: 2, maximum: 15},
             format: { with: VALID_NAME_REGEX }, uniqueness: { case_sensitive: true }
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
