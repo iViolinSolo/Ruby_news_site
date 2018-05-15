@@ -1,5 +1,6 @@
 class SchoolnewsController < ApplicationController
   before_action :logged_in_user, only: [:new, :show, :create]
+  skip_before_action :verify_authenticity_token, only: [:create_json]
 
   PAGE_NUM = 8
 
@@ -52,6 +53,19 @@ class SchoolnewsController < ApplicationController
         format.json { render :show, status: :created, location: @school_news }
       else
         format.html { render 'new' }
+        format.json { render json: @school_news.errors, status: :unprocessable_entity}
+      end
+    end
+  end
+
+  def create_json
+    @school_news = Schoolnews.new(school_news_params)
+    respond_to do |format|
+      if @school_news.save
+        # render json: @school_news
+        format.json { render :show, status: :created, location: @school_news }
+      else
+        # render json: @school_news.errors
         format.json { render json: @school_news.errors, status: :unprocessable_entity}
       end
     end
