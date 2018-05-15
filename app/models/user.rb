@@ -6,12 +6,15 @@ class User < ApplicationRecord
   VALID_NAME_REGEX = /\A[a-zA-Z\d\-_]+\z/
   validates :name,  presence: true, length: {minimum: 2, maximum: 15},
             format: { with: VALID_NAME_REGEX }, uniqueness: { case_sensitive: true }
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   validates :email, presence: true, length: {minimum: 5, maximum: 20},
             format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }
 
+  VALID_PASSWORD_REGEX = /\A(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@!%*?&])[A-Za-z\d$@!%*?&]/
   has_secure_password
-  validates :password, presence: true, length: { minimum: 10 }
+  validates :password, presence: true, length: { minimum: 10 },
+            format: { with: VALID_PASSWORD_REGEX }
 
   # 返回指定字符串的哈希摘要
   def self.digest(string)
