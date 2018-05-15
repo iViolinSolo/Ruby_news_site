@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   get    '/news?p=0',to: 'schoolnews#index'
   get    '/submit',  to: 'schoolnews#new'
   get    '/newcomments',to: 'comments#newcomments'
+  get    '/item',    to: 'schoolnews#show'
 
   scope 'v0' do
     scope 'item' do
