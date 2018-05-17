@@ -5,7 +5,7 @@
   <% @news_list.each do |news|%>
     <div class="news">
       <p class="news-title">
-        <%= _idx += 1 %> .  <%= link_to news.title, schoolnews_path(news) %> <%= link_to_if(news_has_source?(news), safe_source(news), news.source) %>
+        <%= _idx += 1 %> .  <%= link_to news.title, item_path(id: news.id) %> <%= link_to_if(news_has_source?(news), safe_source(news), news.source) %>
       </p>
       <p class="news-info">
         by <%= news.author %> <%= cal_time_before(news.created_at)+' ago' %> | <%= link_to pluralize(safe_comments_counts(news), 'comment'), schoolnews_path(news) %>
