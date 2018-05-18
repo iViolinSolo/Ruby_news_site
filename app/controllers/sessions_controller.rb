@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    @user = User.new
   end
 
   def create
@@ -11,8 +12,10 @@ class SessionsController < ApplicationController
       redirect_back_or root_path
     else
       # 创建一个错误消息
-      flash.now[:danger] = 'Invalid email/password combination'
-      render 'new'
+      # flash.now[:danger] = 'Invalid email/password combination'
+      # render 'new'
+      flash[:danger] = 'Login failed, email and password not match'
+      redirect_to login_path
     end
   end
 
