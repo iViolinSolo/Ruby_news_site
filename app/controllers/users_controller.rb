@@ -16,7 +16,7 @@ class UsersController < ApplicationController
       # 处理注册成功的情况
       log_in @user # directly auto-login after register
       flash[:success] = "Welcome to the School News App!"
-      redirect_to @user
+      redirect_to root_path
     else
       render 'new'
     end
