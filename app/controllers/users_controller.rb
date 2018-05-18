@@ -18,7 +18,9 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to the School News App!"
       redirect_to root_path
     else
-      render 'new'
+      # puts(@user.errors.to_s)
+      # render "new"
+      render "sessions/new"
     end
   end
 
