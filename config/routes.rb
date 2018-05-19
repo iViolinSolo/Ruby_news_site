@@ -19,7 +19,7 @@ Rails.application.routes.draw do
 
   scope 'v0' do
     scope 'item' do
-      get '/comments/:id', to: 'comments#show', defaults: { format: 'json' }
+      get '/comments/:id', to: 'comments#show_json', defaults: { format: 'json' }
       get '/news/:id', to: 'schoolnews#show', defaults: { format: 'json' }
       post '/create', to: 'schoolnews#create_json', defaults: { format: 'json'}
     end

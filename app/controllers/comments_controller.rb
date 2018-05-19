@@ -11,6 +11,18 @@ class CommentsController < ApplicationController
     @comment = Comment.find(params[:id])
   end
 
+  def show_json
+    @comment = Comment.find_by(id: params[:id])
+    respond_to do |format|
+      if @comment.nil?
+        msg = { :Error => "Comment with id:#{params[:id]} can not be found" }
+        format.json { render json: msg, status: :not_found }
+      else
+        format.json { render :show, status: :ok }
+      end
+    end
+  end
+
   def create
     # @school_news = Schoolnews.find(params[:schoolnews_id])
 
