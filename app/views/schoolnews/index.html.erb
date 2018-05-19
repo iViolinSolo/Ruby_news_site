@@ -8,7 +8,7 @@
         <%= _idx += 1 %> .  <%= link_to news.title, item_path(id: news.id) %> <%= link_to_if(news_has_source?(news), safe_source(news), news.source) %>
       </p>
       <p class="news-info">
-        by <%= news.author %> <%= cal_time_before(news.created_at)+' ago' %> | <%= link_to pluralize(safe_comments_counts(news), 'comment'), schoolnews_path(news) %>
+        by <%= news.author %> <%= cal_time_before(news.created_at)+' ago' %> | <%= link_to pluralize(safe_comments_counts(news), 'comment'), item_path(id: news.id) %>
       </p>
     </div>
   <% end %>
