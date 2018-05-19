@@ -73,22 +73,67 @@ class SchoolnewsController < ApplicationController
   end
 
   def create_json
-    @school_news = Schoolnews.new(school_news_params)
-    respond_to do |format|
-      if @school_news.save
-        # render json: @school_news
-        format.json { render :show, status: :created, location: @school_news }
-      else
-        # render json: @school_news.errors
-        format.json { render json: @school_news.errors, status: :unprocessable_entity}
+    candidate_params = item_create_param
+    puts(candidate_params)
+
+    if candidate_params[:type] == "news"
+      puts "news-----"
+      news_params = { :title => candidate_params[:text],
+                      :source => candidate_params[:source],
+                      :author => candidate_params[:username] }
+      @school_news = Schoolnews.new(news_params)
+      respond_to do |format|
+        if @school_news.save
+          # render json: @school_news
+          format.json { render :show, status: :created, location: @school_news }
+        else
+          # render json: @school_news.errors
+          format.json { render json: @school_news.errors, status: :unprocessable_entity}
+        end
+      end
+    elsif candidate_params[:type] == "comments"
+      puts "comment-----"
+      commnet_params = { :content => candidate_params[:text],
+                         :author => candidate_params[:username],
+                         :schoolnews_id => candidate_params[:news_id] }
+      @comment = Comment.new(commnet_params)
+      respond_to do |format|
+        if @comment.save
+          # render json: @comment
+          format.json { render "comments/show", status: :created, location: @comment }
+        else
+          # render json: @comment
+          format.json { render json: @comment.errors, status: :unprocessable_entity}
+        end
+      end
+    else
+      respond_to do |format|
+        msg = { :Error => "type:#{candidate_params[:type]} not support" }
+        format.json { render json: msg, status: :not_acceptable}
       end
     end
+
+    # return
+    # @school_news = Schoolnews.new(school_news_params)
+    # respond_to do |format|
+    #   if @school_news.save
+    #     # render json: @school_news
+    #     format.json { render :show, status: :created, location: @school_news }
+    #   else
+    #     # render json: @school_news.errors
+    #     format.json { render json: @school_news.errors, status: :unprocessable_entity}
+    #   end
+    # end
   end
 
   private
 
     def school_news_params
       params.require(:schoolnews).permit(:title, :source, :author)
+    end
+
+    def item_create_param
+      params.permit(:username, :text, :type, :source, :news_id)
     end
 
     # 前置过滤器
