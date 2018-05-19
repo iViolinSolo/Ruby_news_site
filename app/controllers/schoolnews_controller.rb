@@ -21,6 +21,20 @@ class SchoolnewsController < ApplicationController
     @comment = Comment.new
   end
 
+  def show_json
+    @school_news = Schoolnews.find_by(id: params[:id])
+    # @comment = Comment.new
+
+    respond_to do |format|
+      if @school_news.nil?
+        msg = { :Error => "News with id:#{params[:id]} can not be found" }
+        format.json { render json: msg, status: :not_found }
+      else
+        format.json { render :show, status: :ok }
+      end
+    end
+  end
+
   def new
     @school_news = Schoolnews.new
   end
