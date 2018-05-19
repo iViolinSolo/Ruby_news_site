@@ -74,10 +74,10 @@ class SchoolnewsController < ApplicationController
 
   def create_json
     candidate_params = item_create_param
-    puts(candidate_params)
+    # puts(candidate_params)
 
     if candidate_params[:type] == "news"
-      puts "news-----"
+      # puts "news-----"
       news_params = { :title => candidate_params[:text],
                       :source => candidate_params[:source],
                       :author => candidate_params[:username] }
@@ -92,7 +92,7 @@ class SchoolnewsController < ApplicationController
         end
       end
     elsif candidate_params[:type] == "comments"
-      puts "comment-----"
+      # puts "comment-----"
       commnet_params = { :content => candidate_params[:text],
                          :author => candidate_params[:username],
                          :schoolnews_id => candidate_params[:news_id] }
