@@ -31,6 +31,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     end
     follow_redirect!
     assert_template 'schoolnews/index'
+    assert_not flash.empty?
     assert flash[:success] == "Welcome to the School News App!"
   end
 end
