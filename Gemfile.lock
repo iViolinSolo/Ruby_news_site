@@ -232,6 +232,7 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   minitest-reporters (= 1.1.14)
+  nokogiri
   pg (= 0.20.0)
   puma (~> 3.7)
   rails (~> 5.1.4)

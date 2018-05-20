@@ -1,9 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 #one:
-#  name: MyString
-#  password: MyString
+#  name: Alex
+#  email: alex@example.com
+#  password: foobar1@FOOBAR
+#  password_confirmation: foobar1@FOOBAR
 #
 #two:
-#  name: MyString
-#  password: MyString
+#  name: Tom
+#  email: tom@example.com
+#  password: foobar1@FOOBAR
+#  password_confirmation: foobar1@FOOBAR

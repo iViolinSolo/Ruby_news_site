@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyText
-  source: MyString
-  author: MyString
+  title: These are the victims of the Santa Fe High School shooting
+  source:
+  author: Tom
 
 two:
-  title: MyText
-  source: MyString
-  author: MyString
+  title: Thomas Markle, don't be too hard on yourself
+  source: https://www.cnn.com/2018/05/18/opinions/thomas-markle-do-not-feel-too-bad-crilly-opinion-intl/index.html
+  author: Alex

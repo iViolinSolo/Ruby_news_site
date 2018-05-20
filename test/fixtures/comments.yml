@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  content: MyText
-  author: MyString
-  schoolnews: one
+  content: This is awesome!
+  author: Jhon
+  schoolnews_id: 1
 
 two:
-  content: MyText
-  author: MyString
-  schoolnews: two
+  content: Noo, impossible
+  author: Whoon
+  schoolnews_id: 1
