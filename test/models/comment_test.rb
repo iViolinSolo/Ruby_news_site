@@ -10,6 +10,7 @@ class CommentTest < ActiveSupport::TestCase
     @news = Schoolnews.new(title: "Harry Potter present ", source: "http://baidu.com/s/S3wdDcew2f4F", author: "Alex")
     # puts(@news.id) if @news.save
     #
+    @news.save
     # puts(@news.errors.full_messages)
 
     @comment = Comment.new(content: "Harry Potter present ", author: "Alex", schoolnews_id: @news.id)
