@@ -22,3 +22,9 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+## References  
+
+- Heroku Docs:
+ https://devcenter.heroku.com/articles/getting-started-with-ruby#deploy-the-app
